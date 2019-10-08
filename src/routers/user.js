@@ -10,5 +10,6 @@ Route
     .patch('/updatepassword/:id_user', Auth.accesstoken, userController.updatePassword)
     .post('/insert', Auth.accesstoken, Auth.authadmin, userController.insertUser)
     .post('/login', userController.login)
+    .delete('/:id_user', Auth.accesstoken, Auth.authadmin, userController.deleteUser)
 
 module.exports = Route;

@@ -94,4 +94,15 @@ module.exports = {
                 console.log(error)
             })
     },
+    deleteUser: (req, res) => {
+        const id_user = req.params.id_user
+        userModels.deleteUser(id_user)
+            .then((resultUser) => {
+                const result = resultUser
+                MiscHelper.response(res, result, 200)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
