@@ -77,7 +77,7 @@ module.exports = {
                     dataUser.token = jwt.sign({
                         userid: dataUser.id_user
                     }, process.env.SECRET_KEY, { expiresIn: '1h' });
-                    // dataUser.token += " role1";
+
                     if (dataUser.role_id === 1) {
                         console.log(dataUser.role_id)
                         dataUser.token += ` ${crypto.createHmac('sha1', 'role1').digest('hex')}`
