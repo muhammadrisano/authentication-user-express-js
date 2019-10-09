@@ -1,4 +1,4 @@
-# Simple REST Nyamnyam Cafe
+# Simple Authentication User Express JS
 ![](https://img.shields.io/badge/Code%20Style-Standard-yellow.svg)
 ![](https://img.shields.io/badge/Dependencies-Express-green.svg)
 ![](https://img.shields.io/badge/License-Beerware-yellowgreen.svg)
@@ -26,8 +26,8 @@
 ## Installation
 ### Clone
 ```
-$ git clone https://github.com/muhammadrisano/nyamnyam-cafe-expressjs.git
-$ cd nyamnyam-cafe-expressjs
+$ git clone https://github.com/muhammadrisano/authentication-user-express-js.git
+$ cd authentication-user-express-js
 $ npm install
 ```
 
@@ -47,12 +47,7 @@ SERVER_PORT=4000
 
 SECRET_KEY = "secret key you"
 REQUEST_HEADERS = "request header you"
-
-CLOUD_NAME ="xxxxx"
-API_KEY="xxxxxx"
-API_SECRET="xxxxxxx"
-
-SENDGRID_KEY = "xxxxxxxx"
+AUTH_ADMIN = "xxxx"
 
 ```
 ### Start Development Server
@@ -70,24 +65,19 @@ https://www.getpostman.com/collections/55bfdc80714942d36aa1
 |    \---Config
 |    |   +---db.js            
 |    \---Controllers
-|    |   +---cart.js
-|    |   +---category.js
-|    |   +---item.js
-|    |   +---payment.js
+|    |   +---user.js
+|    |   +---role.js
 |    \---helpers
 |    |   +---auth.js
 |    |   +---helpers
 |    \---models
-|    |   +---cart.js
-|    |   +---category.js
-|    |   +---item.js
-|    |   +---payment.js
+|    |   +---user.js
+|    |   +---role.js
 |    \---routers
-|    |   +---cart.js
-|    |   +---category.js
-|    |   +---item.js
-|    |   +---payment.js
+|    |   +---user.js
+|    |   +---role.js
 +---app.js
++---.env
 ```
 
 
