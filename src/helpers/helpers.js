@@ -31,20 +31,12 @@ module.exports = {
             resultPrint.result = result
 
         } else {
-            resultPrint.status = "Not Success"
-            resultPrint.status_code = 404
-            resultPrint.message = "Data Not Fount"
+            resultPrint.error = error || null
+            resultPrint.status_code = status || 200
+            resultPrint.result = result
         }
         return res.status(resultPrint.status_code).json(resultPrint)
     },
-    // response: (res, result, status, error) => {
-    //     let resultPrint = {}
-    //     resultPrint.error = error || null
-    //     resultPrint.status_code = status || 200
-    //     resultPrint.result = result
-
-    //     return res.status(resultPrint.status_code).json(resultPrint)
-    // },
     generateSalt: (length) => {
         return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0, length)
     },
