@@ -41,7 +41,7 @@ module.exports = {
         })
     },
     authadmin: (req, res, next) => {
-        if (req.authadmin !== crypto.createHmac('sha1', 'role1').digest('hex')) {
+        if (req.authadmin !== crypto.createHmac('sha1', process.env.AUTH_ADMIN).digest('hex')) {
             return MiscHelper.response(res, null, 401, 'admin can only create user')
         }
         next()

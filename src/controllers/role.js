@@ -14,7 +14,6 @@ module.exports = {
     },
 
     insertRole: (req, res) => {
-
         const data = {
             role_name: req.body.role_name
         }

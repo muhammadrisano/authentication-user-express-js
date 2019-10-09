@@ -4,7 +4,7 @@ const connection = require('../configs/db')
 module.exports = {
     getUser: (search) => {
         return new Promise((resolve, reject) => {
-            connection.query("SELECT users.*, role.role_name FROM users INNER JOIN role ON users.role_id = role.id", (err, result) => {
+            connection.query("SELECT users.id_user, users.email, users.fullname, users.role_id, users.created_at, users.updated_at, role.role_name FROM users INNER JOIN role ON users.role_id = role.id", (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {
@@ -15,7 +15,7 @@ module.exports = {
     },
     userDetail: (id_user) => {
         return new Promise((resolve, reject) => {
-            connection.query("SELECT * FROM users WHERE id_user = ?", id_user, (err, result) => {
+            connection.query("SELECT users.id_user, users.email, users.fullname, users.role_id, users.created_at, users.updated_at, role.role_name FROM users INNER JOIN role ON users.role_id = role.id WHERE id_user = ?", id_user, (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {

@@ -2,6 +2,7 @@ const userModels = require('../models/user')
 const MiscHelper = require('../helpers/helpers')
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
+require('dotenv').config()
 
 module.exports = {
     getUser: (req, res) => {
@@ -76,15 +77,14 @@ module.exports = {
                 if (usePassword === dataUser.password) {
                     dataUser.token = jwt.sign({
                         userid: dataUser.id_user
-                    }, process.env.SECRET_KEY, { expiresIn: '1h' });
-
+                    }, process.env.SECRET_KEY, { expiresIn: '1h' })
                     if (dataUser.role_id === 1) {
                         console.log(dataUser.role_id)
-                        dataUser.token += ` ${crypto.createHmac('sha1', 'role1').digest('hex')}`
+                        dataUser.token += ` ${crypto.createHmac('sha1', process.env.AUTH_ADMIN).digest('hex')}`
                     }
-
                     delete dataUser.salt
                     delete dataUser.password
+                    userModels.updateProfile(dataUser.id_user, { token: dataUser.token })
                     return MiscHelper.response(res, dataUser, 200)
                 } else {
                     return MiscHelper.response(res, null, 403, 'Wrong password !')
