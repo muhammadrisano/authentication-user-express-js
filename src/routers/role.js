@@ -7,7 +7,7 @@ Route
     .all('/*', Auth.authInfo)
     .get('/', roleController.getRole)
     .post('/', roleController.insertRole)
-    .patch('/:id_role', roleController.updateRole)
-    .delete('/:id_role', roleController.deleteRole)
+    .patch('/:role_id', roleController.updateRole)
+    .delete('/:role_id', roleController.deleteRole)
 
 module.exports = Route;

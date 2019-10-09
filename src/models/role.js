@@ -25,7 +25,7 @@ module.exports = {
     },
     deleteRole: (role_id) => {
         return new Promise((resolve, reject) => {
-            connection.query("DELETE FROM role WHERE role_id = ?", role_id, (err, result) => {
+            connection.query("DELETE FROM role WHERE id = ?", role_id, (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {
@@ -36,7 +36,7 @@ module.exports = {
     },
     updateRole: (role_id, data) => {
         return new Promise((resolve, reject) => {
-            connection.query("UPDATE role SET ? WHERE role_id = ?", [data, role_id], (err, result) => {
+            connection.query("UPDATE role SET ? WHERE id = ?", [data, role_id], (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {

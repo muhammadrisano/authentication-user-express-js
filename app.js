@@ -8,6 +8,7 @@ const logger = require('morgan')
 
 const port = process.env.SERVER_PORT;
 const userRoute = require('./src/routers/user')
+const roleRoute = require('./src/routers/role')
 
 app.use(cors());
 app.use(xssFilter());
@@ -18,3 +19,4 @@ app.listen(port, () => {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/user', userRoute)
+app.use('/role', roleRoute)
