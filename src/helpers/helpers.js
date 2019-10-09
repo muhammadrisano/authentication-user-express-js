@@ -2,7 +2,7 @@ crypto = require('crypto');
 module.exports = {
 
     response: (res, result, status, error, data) => {
-        console.log(result);
+
         let resultPrint = {}
         if (!result) {
             resultPrint.error = error || null
@@ -16,7 +16,7 @@ module.exports = {
                     resultPrint.insertData = data
             } else if (result.changedRows > 0) {
                 resultPrint.status = 'Success',
-                    resultPrint.status_code = status || 204,
+                    resultPrint.status_code = status || 200,
                     resultPrint.message = "Data success Updated !!",
                     resultPrint.updateDate = data
             } else {
