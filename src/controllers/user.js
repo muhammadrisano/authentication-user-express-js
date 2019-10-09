@@ -94,4 +94,30 @@ module.exports = {
                 console.log(error)
             })
     },
+    deleteUser: (req, res) => {
+        const id_user = req.params.id_user
+        userModels.deleteUser(id_user)
+            .then((resultUser) => {
+                const result = resultUser
+                MiscHelper.response(res, result, 200)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    },
+    updateProfile: (req, res) => {
+        const id_user = req.params.id_user
+        const data = {
+            fullname: req.body.fullname,
+            role_id: req.body.role_id
+        }
+        userModels.updateProfile(id_user, data)
+            .then((resultUser) => {
+                const result = resultUser
+                MiscHelper.response(res, result, 204)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
