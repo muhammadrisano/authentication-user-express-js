@@ -14,13 +14,14 @@ module.exports = {
     },
 
     insertRole: (req, res) => {
+
         const data = {
-            role_name = req.body.role_name
+            role_name: req.body.role_name
         }
         roleModels.insertRole(data)
             .then((resultrole) => {
                 const result = resultrole
-                MiscHelper.response(res, result, 200, data)
+                MiscHelper.response(res, result, 201, data)
             })
             .catch((err) => {
                 console.log(err)
@@ -29,7 +30,7 @@ module.exports = {
     updateRole: (req, res) => {
         const role_id = req.params.role_id
         const data = {
-            role_name = req.body.role_name
+            role_name: req.body.role_name
         }
         roleModels.updateRole(role_id, data)
             .then((resultrole) => {
