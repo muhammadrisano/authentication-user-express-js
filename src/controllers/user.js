@@ -114,7 +114,7 @@ module.exports = {
         userModels.updateProfile(id_user, data)
             .then((resultUser) => {
                 const result = resultUser
-                MiscHelper.response(res, result, 204)
+                MiscHelper.response(res, result, 200)
             })
             .catch((error) => {
                 console.log(error)
