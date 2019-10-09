@@ -8,6 +8,7 @@ Route
     .get('/', Auth.accesstoken, userController.getUser)
     .get('/:id_user', Auth.accesstoken, userController.userDetail)
     .patch('/updatepassword/:id_user', Auth.accesstoken, userController.updatePassword)
+    .patch('/:id_user', Auth.accesstoken, userController.updateProfile)
     .post('/insert', Auth.accesstoken, Auth.authadmin, userController.insertUser)
     .post('/login', userController.login)
     .delete('/:id_user', Auth.accesstoken, Auth.authadmin, userController.deleteUser)
