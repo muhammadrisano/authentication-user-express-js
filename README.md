@@ -60,7 +60,9 @@ SENDGRID_KEY = "xxxxxxxx"
 $ npm start
 ```
 ## Link Collection Postman
-[Postman](https://www.getpostman.com/collections/fbce4987f2985188f339)
+```
+https://www.getpostman.com/collections/55bfdc80714942d36aa1
+```
 
 ## Structur Folder
 ```
